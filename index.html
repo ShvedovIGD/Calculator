@@ -73,21 +73,21 @@
 		<div class = "item clean">C</div>
 		<div class = "item back">&larr;</div>
 		<div class = "item"	>+</div>
-		<div class = "item num"	>1</div>
-		<div class = "item num"	>2</div>
-		<div class = "item num"	>3</div>
+		<div class = "item num"	onclick="insertNum('1')">1</div>
+		<div class = "item num"	onclick="insertNum('2')">2</div>
+		<div class = "item num"	onclick="insertNum('3')">3</div>
 		<div class = "item"	>-</div>
-		<div class = "item num"	>4</div>
-		<div class = "item num"	>5</div>
-		<div class = "item num"	>6</div>
+		<div class = "item num"	onclick="insertNum('4')">4</div>
+		<div class = "item num"	onclick="insertNum('5')">5</div>
+		<div class = "item num"	onclick="insertNum('6')">6</div>
 		<div class = "item"	>&times;</div>
-		<div class = "item num"	>7</div>
-		<div class = "item num"	>8</div> 
-		<div class = "item num"	>9</div>
+		<div class = "item num"	onclick="insertNum('7')">7</div>
+		<div class = "item num"	onclick="insertNum('8')">8</div> 
+		<div class = "item num"	onclick="insertNum('9')">9</div>
 		<div class = "item"	>/</div>
 		<div class = "item num"	>+/-</div>
-		<div class = "item num"	>0</div>
-		<div class = "item num"	>.</div>
+		<div class = "item num"	onclick="insertNum('0')">0</div>
+		<div class = "item num"	onclick="insertNum('.')">.</div>
 		<div class = "item eql"	>=</div>
 
 	</div>
@@ -95,4 +95,12 @@
 </html>
 
 <script>
+	function insertNum(num){
+		if(document.inputForm.inputView.value=="")
+			if(num==".")
+				document.inputForm.inputView.value=document.inputForm.inputView.value+"0";
+		if(num=="."&& document.inputForm.inputView.value.includes("."))
+			num="";
+		document.inputForm.inputView.value=document.inputForm.inputView.value+num;
+	}
 </script>
