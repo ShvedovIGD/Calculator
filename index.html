@@ -85,10 +85,10 @@
 		<div class = "item num"	onclick="insertNum('8')">8</div> 
 		<div class = "item num"	onclick="insertNum('9')">9</div>
 		<div class = "item"	onclick="operation('/')">/</div>
-		<div class = "item num"	>+/-</div>
+		<div class = "item num"	onclick="sign()">+/-</div>
 		<div class = "item num"	onclick="insertNum('0')">0</div>
 		<div class = "item num"	onclick="insertNum('.')">.</div>
-		<div class = "item eql"	>=</div>
+		<div class = "item eql"	onclick="eql()">=</div>
 
 	</div>
 	</body>
@@ -115,5 +115,20 @@
 	function backspace(){
 		var exp=document.inputForm.inputView.value;
 		document.inputForm.inputView.value=exp.substring(0,exp.length-1);
+	}
+	function sign(){
+		var exp=document.inputForm.inputView.value;
+		if(exp){
+			exp=exp+"*-1";
+			document.inputForm.inputView.value = eval(exp);
+		}
+	}
+	function eql(){
+		var exp=document.calcForm.calcView.value+document.inputForm.inputView.value;
+		if(exp){
+			exp=exp.replace("--","+");
+			document.inputForm.inputView.value = Math.round(eval(exp)*1000000000)/1000000000;
+		}
+		document.calcForm.calcView.value="";
 	}
 </script>
